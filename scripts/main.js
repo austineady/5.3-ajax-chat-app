@@ -4,6 +4,7 @@
   var username = '';
   var date = moment().fromNow();
   var content = $('.typemessage').val();
+  var userList = [];
 
   $(document).ready(function(){
 
@@ -77,10 +78,13 @@
     $.ajax({
       url: "http://tiny-lasagna-server.herokuapp.com/collections/messages/",
     }).then(function(message) {
-      $('.chatlist').html('');
       $('.messageboard').html('');
       message.forEach(function(message) {
-        $('.chatlist').append(JST['chatnames'](message));
+        var usernames = message.username;
+        if(_.contains(userList, usernames) !== true) {
+          userList.push(usernames);
+          placeUsers(message);
+        }
         $('.messageboard').append(JST['message'](message));
       });
     });
@@ -90,6 +94,10 @@
     var result = moment(date).fromNow();
     return new Handlebars.SafeString(result);
   });
+
+  function placeUsers(message) {
+    $('.chatlist').append(JST['chatnames'](message));
+  }
 
   function Message(content) {
     this.username = username;
