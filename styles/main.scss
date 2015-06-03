@@ -14,8 +14,173 @@ $very-light-gray: #fafafa;
 $base-font-color: $dark-gray;
 $base-background-color: $very-light-gray;
 
+* {
+  font-family: 'Ubuntu', sans-serif;
+}
+
 body {
+  @include outer-container($max-width);
+  height: 100vh;
   font-family: $base-font-family;
-  background-color: $base-background-color;
+  background-color: rgba(214, 213, 209, 1);
   color: $base-font-color;
+}
+
+li {
+  list-style: none;
+}
+
+.application {
+  @include span-columns(12);
+  height: 100vh;
+}
+
+.logincontent {
+  @include span-columns(12);
+  margin: 0 auto;
+  height: 100vh;
+  text-align: center;
+  background-color: rgba(53, 193, 144, 1);
+}
+
+.title {
+  @include span-columns(12);
+  font-size: 40px;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 300px;
+  margin-bottom: 50px;
+}
+
+.fa-server {
+  margin-right: 10px;
+}
+
+.login-form-username {
+  @include span-columns(3);
+  @include shift(4.5);
+  border: 1px solid white;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  outline: none;
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+}
+
+.log-in-button {
+  @include span-columns(1.5);
+  @include shift(5.25);
+  height: 50px;
+  margin-top: 20px;
+  border: 1px solid white;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.sidebar {
+  @include span-columns(3 of 12);
+  @include omega();
+  float: left;
+  height: 100vh;
+  border-radius: 5px;
+  text-align: center;
+  background-color: rgba(53, 193, 144, 1);
+}
+
+.chatnames {
+  text-decoration: underline;
+  color: white;
+}
+
+.online-user {
+  margin-top: 10px;
+  color: white;
+}
+
+.createmessage {
+  @include span-columns(9 of 12);
+  @include omega();
+  float: right;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  height: 70px;
+  background-color: white;
+}
+
+.typemessage {
+  @include span-columns(10);
+  margin-top: 10px;
+  margin-left: 5px;
+  height: auto;
+  outline: none;
+  overflow: scroll;
+  padding: 5px;
+  border: 1px solid silver;
+  border-radius: 5px;
+}
+
+.submit-message {
+  @include span-columns(1.8);
+  height: 45px;
+  margin-top: 10px;
+  border: 1px solid rgba(102, 174, 88, 1);
+  color: rgba(255, 255, 255, .8);
+  border-radius: 5px;
+  background: linear-gradient(rgba(136, 225, 117, 1), rgba(100, 169, 86, 1));
+}
+
+.messageboard {
+  @include span-columns(9 of 12);
+  @include omega();
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: rgba(53, 193, 144, 1);
+  float: right;
+  height: 93vh;
+  overflow-y: scroll;
+}
+
+.message {
+  @include span-columns(11);
+  @include shift(.5);
+  height: auto;
+  margin-top: 5px;
+  border: 2px solid rgba(255, 255, 255, .8);
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+.poster {
+  @include span-columns(3);
+  float: left;
+}
+
+.posttime {
+  @include span-columns(3);
+  @include omega();
+  float: right;
+}
+
+.messagecontent {
+  @include span-columns(11);
+  color: white;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.avatar {
+  @include span-columns(.8);
+  @include omega();
+  height: 30px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.messageheader {
+  @include span-columns(12);
+  margin: 0;
+  padding: 3px;
+  background-color: rgba(255, 255, 255, .8);
 }
